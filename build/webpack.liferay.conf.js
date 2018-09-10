@@ -32,9 +32,9 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/'+ (pj.librayFileName || "founderlib.portal") +'.js'),
+    filename: utils.assetsPath('js/'+ (pj.libraryFileName || "founderlib.portal") +'.js'),
     chunkFilename: utils.assetsPath('js/[id].js'),
-    library: (pj.librayName || "FounderLibrary_portal"),
+    library: (pj.libraryName || "FounderLibrary_portal"),
     libraryTarget: "umd",
     libraryExport: "default"
   },
