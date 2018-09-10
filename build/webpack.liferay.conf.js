@@ -10,12 +10,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const pj = require("../package.json");
 
 const env = {
   NODE_ENV: '"liferay"'
 }
 
-const libName = "founderlib.pbd";
+//const libName = "founderlib.pbd";
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: {
@@ -31,9 +32,9 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/'+libName+'.js'),
+    filename: utils.assetsPath('js/'+ (pj.librayFileName || "founderlib.portal") +'.js'),
     chunkFilename: utils.assetsPath('js/[id].js'),
-    library: "FounderLibrary_pbd",
+    library: (pj.librayName || "FounderLibrary_portal"),
     libraryTarget: "umd",
     libraryExport: "default"
   },
